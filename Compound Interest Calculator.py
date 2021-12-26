@@ -16,7 +16,7 @@ from colors import get_color
 deposit = 0
 m_contribution = 888 + 500
 
-retire_age = 120
+retire_age = 65
 current_age = 24
 time = retire_age - current_age
 
@@ -80,3 +80,20 @@ tick = mtick.StrMethodFormatter(fmt)
 ax.yaxis.set_major_formatter(tick)
 plt.tight_layout()
 # plt.savefig('Result.png', dpi=1200)
+
+# =============================================================================
+# Calculate pension 
+
+avg_sal = 84000
+
+if time >= 62:
+    factor = 0.011
+    pension = factor*avg_sal*time
+    
+else:
+    factor = 0.01
+    pension = factor*avg_sal*time
+
+print("\nYour pension after {} years at the age of {} is: ${:,.0f} per year.".format(time, retire_age, pension))
+
+# =============================================================================
